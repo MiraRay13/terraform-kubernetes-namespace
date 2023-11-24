@@ -1,8 +1,3 @@
-# Usage
-
-### Copy paste this message into your terraform root
-
-'''
 module "namespace" {
   source = "MiraRay13/namespace/kubernetes"
   name   = "test"
@@ -13,4 +8,3 @@ module "namespace" {
     managed_by = "terraform"
   }
 }
-'''

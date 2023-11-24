@@ -1,13 +1,19 @@
 resource "kubernetes_namespace" "example" {
   metadata {
-    annotations = {
-      name = "example-annotation"
-    }
+    annotations = var.annotations
+    labels = var.labels
+    name = var.name
+  }
+}
 
-    labels = {
-      mylabel = "label-value"
+resource "kubernetes_resource_quota" "example" {
+  metadata {
+    name = "terraform-example"
+  }
+  spec {
+    hard = {
+      pods = 10
     }
-
-    name = "terraform-example-namespace"
+    scopes = ["BestEffort"]
   }
 }
